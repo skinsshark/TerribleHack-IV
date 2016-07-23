@@ -33,14 +33,17 @@ function search() {
     var request = gapi.client.youtube.search.list({
     	part: 'snippet',
     	q: realRealSearch,
-    	maxResults: 3
+    	maxResults: 3,
+      type: 'video'
     });
     request.execute(function(response) {
       var results = response.result;
       $("#response").html("");
+
+
       $.each(results.items, function(index, item) {
         $.get("resources/tpl/item.html", function(data) {
-            $("#response").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
+          $("#response").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
         });
       });
       resetVideoHeight();

@@ -14,7 +14,7 @@ body{
 	max-height:50vh;
 }
 .container{
-	/*width:100%;*/
+	min-width:80%;
 }
 iframe{
 	max-width:100%;
