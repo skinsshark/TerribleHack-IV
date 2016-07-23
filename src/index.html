@@ -14,27 +14,56 @@
 </head>
 <body>
 
-	<header class="container">
+	<section class="container">
 
-		<h1>not you<span class="tube">tube</span></h1>
-		
-	</header>
+		<!-- <div class="row">
 
-	<div class="container">
-		<div class="row">
+			<header class="container">
+				<h1>not you<span class="tube">tube</span></h1>
+			</header>
+
 			<form class="col-md-6">
 				<div class="form-group">
 					<input type="text" class="form-control" id="searchQuery" placeholder="search for stuff">
 				</div>
 				<button class="btn btn-danger" type="button" id="showVideos" onclick="onClientLoad()">show me videos</button>
 			</form>
+
 		</div>
+
 		<div class="row results">
 			<div class="col-md-12" id="response"></div>
-		</div>
-	</div>
+		</div> -->
+		<article class="col-md-6">
+			<div class="row block">
+				<header class="container">
+					<h1>not you<span class="tube">tube</span></h1>
+				</header>
+				<form class="col-md-10">
+					<div class="form-group">
+						<input type="text" class="form-control" id="searchQuery" placeholder="search for stuff">
+					</div>
+					<button class="btn btn-danger" type="button" id="showVideos" onclick="onClientLoad()">show me videos</button>
+				</form>
+
+			</div>
+			<div class="row block">
+			<div class="col-md-12">asdf</div>
+			</div>
+		</article>
+
+		<article class="col-md-6">
+			<div class="row block results">
+				<div class="col-md-12" id="response"></div>
+			</div>
+			<div class="row block">
+<div class="col-md-12">asdf</div>
+			</div>
+		</article>
+	</section>
 
 </body>
+
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="resources/js/app.js"></script>
 <script src="https://apis.google.com/js/client.js"></script>

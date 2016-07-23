@@ -3,13 +3,25 @@
 
 body{
 	background-color:#fff;
-	font-family: Arial;
+	padding-top:20px;
 }
 
 /* structure --------- */
-header{
-	padding-top:20px;
+@media only screen and (min-width:992px){
+.block {
+	/*border:1px solid red;*/
+	min-height:45vh;
+	max-height:50vh;
 }
+.container{
+	/*width:100%;*/
+}
+iframe{
+	max-width:100%;
+}
+}
+
+
 
 @media only screen and (max-width:767px){
 	header{
@@ -17,8 +29,9 @@ header{
 	}
 }
 
-.results{
-	margin-top:30px;
+
+article{
+	max-height:100vh;
 }
 
 
@@ -29,4 +42,8 @@ h1{
 
 .tube {
 	color:#d9534f;
+}
+
+section{
+	font-family: Arial;
 }
