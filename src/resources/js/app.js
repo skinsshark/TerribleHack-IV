@@ -1,21 +1,10 @@
+function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
 
 // Your use of the YouTube API must comply with the Terms of Service:
 // https://developers.google.com/youtube/terms
 
 // Helper function to display JavaScript value on HTML page.
-function showResponse(response) {
-	var responseString = JSON.stringify(response, '', 2);
-    // document.getElementById('response').innerHTML += responseString;
-    // console.log(responseString);
-
-    $("#response").html("<br/>");
-
-    $.each(response.items, function(index, item) {
-    	$("#response").append(item.id.videoId+"<br/>");
-    });
-
-}
 
 // Called automatically when JavaScript client library is loaded.
 function onClientLoad() {
@@ -46,10 +35,21 @@ function search() {
     	q: realRealSearch,
     	maxResults: 3
     });
+    request.execute(function(response) {
+      var results = response.result;
+      $("#response").html("");
+      $.each(results.items, function(index, item) {
+        $.get("resources/tpl/item.html", function(data) {
+            $("#response").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+        });
+      });
+      resetVideoHeight();
+   });
     
     // Send the request to the API server,
     // and invoke onSearchRepsonse() with the response.
     request.execute(onSearchResponse);
+
 }
 
 // Called automatically with the response of the YouTube API request.
