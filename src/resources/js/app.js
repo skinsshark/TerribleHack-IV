@@ -40,7 +40,7 @@ function search() {
       $("#response").html("");
       $.each(results.items, function(index, item) {
         $.get("resources/tpl/item.html", function(data) {
-            $("#response").append(tplawesome(data, [{"title":item.snippet.title, "videoid":item.id.videoId}]));
+            $("#response").append(tplawesome(data, [{ "videoid":item.id.videoId}]));
         });
       });
       resetVideoHeight();
