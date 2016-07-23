@@ -1,3 +1,4 @@
+
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
 function handle(e){
@@ -45,13 +46,30 @@ function search() {
     });
     request.execute(function(response) {
       var results = response.result;
-      $("#response").html("");
+      $("#vid1").html("");
+      $("#vid2").html("");
+      $("#vid3").html("");
 
 
       $.each(results.items, function(index, item) {
-        $.get("resources/tpl/item.html", function(data) {
-          $("#response").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
+        console.log(index);
+
+        if (index==1){
+          $.get("resources/tpl/item.html", function(data) {
+          $("#vid1").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
         });
+        }
+        else if (index==2){
+          $.get("resources/tpl/item.html", function(data) {
+          $("#vid2").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
+        });
+        }
+        else{
+          $.get("resources/tpl/item.html", function(data) {
+          $("#vid3").append(tplawesome(data, [{"title":"", "videoid":item.id.videoId}])); // rm title
+        });
+        }
+
       });
    });
     
@@ -65,41 +83,4 @@ function search() {
 function onSearchResponse(response) {
 	showResponse(response);
 }
-
-
-
-
-
-
-
-// $(function() {
-
-// });
-
-// function init() {
-// 	gapi.client.setApiKey("AIzaSyD4KXnN-f5YuPnymtetxD2_JK9anHGSq3g");
-// 	gapi.client.load("youtube" , "v3" , function() {
-// 		// youtube api ready
-// 	});
-// }
-
-
-// // After the API loads, call a function to enable the search box.
-// function handleAPILoaded() {
-//   $('#search-button').attr('disabled', false);
-// }
-
-// // Search for a specified string.
-// function search() {
-//   var q = $('#query').val();
-//   var request = gapi.client.youtube.search.list({
-//     q: q,
-//     part: 'snippet'
-//   });
-
-//   request.execute(function(response) {
-//     var str = JSON.stringify(response.result);
-//     $('#search-container').html('<pre>' + str + '</pre>');
-//   });
-// }
 
