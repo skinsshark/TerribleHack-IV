@@ -1,6 +1,13 @@
 
 function tplawesome(e,t){res=e;for(var n=0;n<t.length;n++){res=res.replace(/\{\{(.*?)\}\}/g,function(e,r){return t[n][r]})}return res}
 
+function handle(e){
+    if(e.keyCode === 13){
+       onClientLoad();
+    }
+
+    return false;
+}
 
 // Your use of the YouTube API must comply with the Terms of Service:
 // https://developers.google.com/youtube/terms
@@ -64,7 +71,6 @@ function search() {
         }
 
       });
-      resetVideoHeight();
    });
     
     // Send the request to the API server,
