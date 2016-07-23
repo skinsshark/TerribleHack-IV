@@ -1,0 +1,21 @@
+
+/* general ---------- */
+
+body{
+	background-color:#fff;
+}
+
+/* structure --------- */
+header{
+
+}
+
+
+/* typography ---------- */ 
+h1{
+	margin-bottom:20px;
+}
+
+.tube {
+	color:red;
+}
