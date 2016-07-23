@@ -5,14 +5,22 @@
 
 // Helper function to display JavaScript value on HTML page.
 function showResponse(response) {
-    var responseString = JSON.stringify(response, '', 2);
+	var responseString = JSON.stringify(response, '', 2);
     // document.getElementById('response').innerHTML += responseString;
-    console.log(responseString);
+    // console.log(responseString);
+
+    $("#response").html("<br/>");
+
+    $.each(response.items, function(index, item) {
+    	$("#response").append(item.id.videoId+"<br/>");
+    });
+
 }
 
 // Called automatically when JavaScript client library is loaded.
 function onClientLoad() {
-    gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
+
+	gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
 }
 
 // Called automatically when YouTube API interface is loaded (see line 9).
@@ -25,10 +33,18 @@ function onYouTubeApiLoad() {
 }
 
 function search() {
+
+	var realSearch = $('#searchQuery').val();
+	var realRealSearch = realSearch.split("").reverse().join("");
+
+	console.log("in "+realSearch);
+	console.log("in in "+realRealSearch);
+
     // Use the JavaScript client library to create a search.list() API call.
     var request = gapi.client.youtube.search.list({
-        part: 'snippet',
-        
+    	part: 'snippet',
+    	q: realRealSearch,
+    	maxResults: 3
     });
     
     // Send the request to the API server,
@@ -38,7 +54,7 @@ function search() {
 
 // Called automatically with the response of the YouTube API request.
 function onSearchResponse(response) {
-    showResponse(response);
+	showResponse(response);
 }
 
 
