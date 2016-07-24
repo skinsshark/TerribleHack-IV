@@ -1,2 +1,2 @@
 # TerribleHack-IV
-a web app to display top 3 videos based on search query
+web app that picks 3 videos very meticulously to tailor to user's specific interests
