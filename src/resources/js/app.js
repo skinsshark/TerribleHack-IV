@@ -29,6 +29,10 @@ function onYouTubeApiLoad() {
     search();
 }
 
+function resizeVideoHeight() {
+  $(".video").css("height", $(".block").width() * 9/16);
+}
+
 function search() {
 
 	var realSearch = $('#searchQuery').val();
@@ -71,6 +75,7 @@ function search() {
         }
 
       });
+      resizeVideoHeight();
    });
 
 }
