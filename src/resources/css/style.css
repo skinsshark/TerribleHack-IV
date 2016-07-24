@@ -2,7 +2,7 @@
 /* general ---------- */
 
 body{
-	background-color:#fff;
+	background-color:#000;
 	padding-top:20px;
 }
 
@@ -41,6 +41,7 @@ article{
 /* typography ---------- */ 
 h1{
 	margin-bottom:20px;
+	color:#fff;
 }
 
 .tube {
